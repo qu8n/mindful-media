@@ -39,8 +39,13 @@ function ifCurrentWebsiteInList(websiteList) {
 };
 
 if (ifCurrentWebsiteInList(websiteList)) {
-    // clear out content
-    document.querySelector("body").innerHTML = "";
+    // replace content of page
+    document.querySelector("body").innerHTML = `
+        <br><br><br><br><br>
+        <p id="message">
+            Take a deep breath.
+        </p>
+    `;
 
     // set bg color to black
     document.querySelector("body").setAttribute('style', 'background-color: #000000 !important');

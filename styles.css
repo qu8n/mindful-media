@@ -1,0 +1,6 @@
+/* This is injected after a web page loads */
+
+#message {
+  color: white;
+  text-align: center;
+}
