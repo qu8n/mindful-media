@@ -2,6 +2,12 @@
 
 /* Brainstorming space:
 
+MVP scope:
+- when visiting a page in list, load the custom page with a mindfulness reminder message (eg "take a deep breath...")
+- unlock page in 5 minutes. this applies to any website on the list
+- then user can access it for 30 minutes. this applies to any website on the list
+- script resets
+
 name the extension "minefulness" as a play on word of "mindfulness"
 
 TODO: look at the extension that tracks twitter visits. how is it persisting the visit count?
@@ -27,7 +33,12 @@ const websiteList = [
 
 function ifCurrentWebsiteInList(websiteList) {
     // get the current website's URL
-    const currentUrl = window.location.hostname;
+    let currentUrl = window.location.hostname;
+
+    // if URL doesn't include subdomain "www", add it
+    if (currentUrl.indexOf("www.") === -1) {
+        currentUrl = "www." + currentUrl
+    };
     
     // loop through the list of websites and check if the current website's URL matches any of them
     for (let i = 0; i < websiteList.length; i++) {
@@ -50,6 +61,3 @@ if (ifCurrentWebsiteInList(websiteList)) {
     // set bg color to black
     document.querySelector("body").setAttribute('style', 'background-color: #000000 !important');
 };
-
-
-
