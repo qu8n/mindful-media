@@ -1,5 +1,14 @@
 /* This runs after a web page loads */
 
+/* Brainstorming space:
+
+name the extension "minefulness" as a play on word of "mindfulness"
+
+TODO: look at the extension that tracks twitter visits. how is it persisting the visit count?
+
+*/
+
+
 const websiteList = [
     "www.4chan.org",
     "www.9gag.com",
@@ -30,7 +39,11 @@ function ifCurrentWebsiteInList(websiteList) {
 };
 
 if (ifCurrentWebsiteInList(websiteList)) {
+    // clear out content
     document.querySelector("body").innerHTML = "";
+
+    // set bg color to black
+    document.querySelector("body").setAttribute('style', 'background-color: #000000 !important');
 };
 
 
