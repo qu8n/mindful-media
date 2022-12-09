@@ -1,8 +1,13 @@
 /* This runs after a web page loads */
 
+// TODO: format the message to look pretty
+// TODO: move variables/appropriate functions to the config section, then ensure that it works in Arc
+// TODO: credit https://one-sec.app/
+// TODO: add opacity to the countdown text
+// TODO: add a breathing circle effect https://vmar76.medium.com/using-css-animations-to-visualize-breathing-techniques-7a20ee0aed5a
+
 // CONFIGURATIONS
 
-// any websites in this list will receive the mindfulness effect
 const websiteList = [
     "www.4chan.org",
     "www.9gag.com",
@@ -48,9 +53,9 @@ function enableOverlay() {
     overlayElement.innerHTML = `
         <div id="message">
             <p>Take a deep breath.</p>
-            <br>
             <q>“The present moment is filled with joy and happiness. If you are attentive, you will see it.”
             ― Thich Nhat Hanh</q> 
+            <p id="countdown"></p>
         </div>
     `;
 
@@ -61,11 +66,24 @@ function disableOverlay() {
     document.getElementById("mindfulnessOverlay").style.display = "none";
 };
 
+var timeleft = 10;
+
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0) {
+    clearInterval(downloadTimer);
+  } else {
+    document.getElementById("countdown").innerHTML = "You can resume in " + timeleft + " seconds";
+  }
+  timeleft -= 1;
+}, 1000);
+ 
+var pauseTime = 1000 * 10
+
 // MAIN
 
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
     setTimeout(function() {
         disableOverlay()
-    }, 1000 * 5);
+    }, pauseTime);
 };

@@ -11,10 +11,12 @@
   bottom: 0;
   z-index: 999999; /* prioritize this element above all */
   background-color: var(
-    --arc-background-simple-color
-  ); /* Black background with opacity */
+    --arc-palette-background
+  ); /* use current Arc space's theme */
 }
 
 #message {
-  color: var(--arc-palette-title);
+  margin-top: 300px;
+  text-align: center;
+  color: var(--arc-palette-title); /* use current Arc space's theme */
 }
