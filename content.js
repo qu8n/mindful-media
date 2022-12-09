@@ -1,20 +1,8 @@
 /* This runs after a web page loads */
 
-/* Brainstorming space:
+// CONFIGURATIONS
 
-MVP scope:
-- when visiting a page in list, load the custom page with a mindfulness reminder message (eg "take a deep breath...")
-- unlock page in 5 minutes. this applies to any website on the list
-- then user can access it for 30 minutes. this applies to any website on the list
-- script resets
-
-name the extension "minefulness" as a play on word of "mindfulness"
-
-TODO: look at the extension that tracks twitter visits. how is it persisting the visit count?
-
-*/
-
-
+// any websites in this list will receive the mindfulness effect
 const websiteList = [
     "www.4chan.org",
     "www.9gag.com",
@@ -31,7 +19,9 @@ const websiteList = [
     "www.pinterest.com",
 ];
 
-function ifCurrentWebsiteInList(websiteList) {
+// FUNCTION DEFINITIONS AND HELPERS
+
+function currentWebsiteInList(websiteList) {
     // get the current website's URL
     let currentUrl = window.location.hostname;
 
@@ -49,15 +39,33 @@ function ifCurrentWebsiteInList(websiteList) {
     return false;
 };
 
-if (ifCurrentWebsiteInList(websiteList)) {
-    // replace content of page
-    document.querySelector("body").innerHTML = `
-        <br><br><br><br><br>
-        <p id="message">
-            Take a deep breath.
-        </p>
+function enableOverlay() {
+    // create the overlay parent element
+    let overlayElement = document.createElement("div");
+    overlayElement.id = "mindfulnessOverlay";
+
+    // insert mindfulness message
+    overlayElement.innerHTML = `
+        <div id="message">
+            <p>Take a deep breath.</p>
+            <br>
+            <q>“The present moment is filled with joy and happiness. If you are attentive, you will see it.”
+            ― Thich Nhat Hanh</q> 
+        </div>
     `;
 
-    // set bg color to black
-    document.querySelector("body").setAttribute('style', 'background-color: #000000 !important');
+    document.body.appendChild(overlayElement)
+};
+
+function disableOverlay() {
+    document.getElementById("mindfulnessOverlay").style.display = "none";
+};
+
+// MAIN
+
+if (currentWebsiteInList(websiteList)) {
+    enableOverlay();
+    setTimeout(function() {
+        disableOverlay()
+    }, 1000 * 5);
 };

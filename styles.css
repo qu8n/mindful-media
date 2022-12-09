@@ -1,6 +1,20 @@
 /* This is injected after a web page loads */
 
+#mindfulnessOverlay {
+  position: fixed; /* sit on top of the page content */
+  display: block;
+  width: 100%; /* to cover the whole page */
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999; /* prioritize this element above all */
+  background-color: var(
+    --arc-background-simple-color
+  ); /* Black background with opacity */
+}
+
 #message {
-  color: white;
-  text-align: center;
+  color: var(--arc-palette-title);
 }
