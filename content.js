@@ -2,9 +2,9 @@
 
 // SETTINGS
 
-var pauseTime = 1; // in seconds
+var pauseTime = 10; // in seconds
 
-var mindfulnessMessage = "Take a deep breath."
+var mindfulnessMessage = "Inhale. Exhale. Repeat.";
 
 const websiteList = [
     "www.4chan.org",
@@ -46,33 +46,37 @@ function enableOverlay() {
     // create the overlay parent element
     var overlayElement = document.createElement("div");
     overlayElement.id = "overlayElement";
+    document.body.appendChild(overlayElement);
+    
+    overlayElement.innerHTML += `
+    <div class="breathingContainer">
+        <div class="breathingBox"></div>
+    </div>
+    `;
 
     // insert mindfulness message
-    overlayElement.innerHTML = `
+    overlayElement.innerHTML += `
         <p id="paddingHelper"></p>
         <p id="mainMessage">${mindfulnessMessage}</p>
-        <p id="countdownMessage""></p>
-        <div class="breathingContainer">
-            <div class="exhale"></div>
-            <div class="inhale"></div>
-            <div class="breathingBox"></div>
-        </div>
     `;
-    document.body.appendChild(overlayElement);
+    
+    startCountdownTimer();
+    
 };
 
-
-pauseTime *= 1000;
-var timeleft = pauseTime;
-let downloadTimer = setInterval(function(){
-    if(timeleft < 0) {
-        clearInterval(downloadTimer);
-        timeOver();
-    } else {
-        document.getElementById("countdownMessage").innerHTML = "Resuming in " + timeleft/1000;
-    }
-    timeleft -= 1000;
-}, 1000);
+function startCountdownTimer() {
+    overlayElement.innerHTML += `<p id="countdownMessage""></p>`
+    let timeleft = pauseTime * 1000;
+    let countdownTimer = setInterval(function(){
+        if(timeleft < 0) {
+            clearInterval(countdownTimer);
+            timeOver();
+        } else {
+            document.getElementById("countdownMessage").innerHTML = "Resuming in " + timeleft/1000;
+        }
+        timeleft -= 1000;
+    }, 1000);
+}
  
 function timeOver() {
     document.getElementById("countdownMessage").style.display = "none";
@@ -91,9 +95,8 @@ function timeOver() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
-    let p = document.createElement("p")
+    let p = document.createElement("p");
     overlayElement.append(closeButton, p, continueButton);
-    // overlayElement.appendChild(continueButton);
 };
 
 // MAIN
@@ -101,5 +104,3 @@ function timeOver() {
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
 };
-
-
