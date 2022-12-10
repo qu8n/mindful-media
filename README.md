@@ -2,6 +2,8 @@
 
 Mindful Media is a [Boost](https://browserinc.notion.site/Arc-Boosts-beta-fd9ea0bfb1b54e9c82c2d88182096405) for the [Arc browser](https://arc.net/) that presents you with a countdown timer and mindfulness reminder before you enter a distracting website. It's designed to help improve our habits long-term, relationship with social media, and take back time for things that matter most to us.
 
+![Demo](https://github.com/quandollar/arc-boost-mindful-media/blob/main/demo.gif)
+
 ## Installation
 
 1. Install and open the [Arc browser](https://arc.net/) on your computer.
