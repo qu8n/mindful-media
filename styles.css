@@ -1,6 +1,6 @@
 /* This is injected after a web page loads */
 
-#mindfulnessOverlay {
+#overlayElement {
   position: fixed; /* sit on top of the page content */
   display: block;
   width: 100%; /* to cover the whole page */
@@ -15,8 +15,9 @@
   ); /* use current Arc space's theme */
 }
 
-#message {
+#overlayContent {
+  font-family: "Helvetica", sans-serif;
+  font-size: x-large;
   margin-top: 300px;
   text-align: center;
-  color: var(--arc-palette-title); /* use current Arc space's theme */
 }

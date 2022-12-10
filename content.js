@@ -8,6 +8,8 @@
 
 // CONFIGURATIONS
 
+let pauseTime = 10; // in seconds
+
 const websiteList = [
     "www.4chan.org",
     "www.9gag.com",
@@ -47,43 +49,38 @@ function currentWebsiteInList(websiteList) {
 function enableOverlay() {
     // create the overlay parent element
     let overlayElement = document.createElement("div");
-    overlayElement.id = "mindfulnessOverlay";
+    overlayElement.id = "overlayElement";
 
     // insert mindfulness message
     overlayElement.innerHTML = `
-        <div id="message">
+        <div id="overlayContent" style="color: var(--arc-palette-title)">
             <p>Take a deep breath.</p>
-            <q>“The present moment is filled with joy and happiness. If you are attentive, you will see it.”
-            ― Thich Nhat Hanh</q> 
-            <p id="countdown"></p>
+            <p>The present moment is filled with joy and happiness. If you are attentive, you will see it.”
+            ― Thich Nhat Hanh</p> 
+            <p id="countdown" style="opacity: 0.3"></p>
         </div>
     `;
 
     document.body.appendChild(overlayElement)
 };
 
-function disableOverlay() {
-    document.getElementById("mindfulnessOverlay").style.display = "none";
-};
 
-var timeleft = 10;
-
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0) {
-    clearInterval(downloadTimer);
-  } else {
-    document.getElementById("countdown").innerHTML = "You can resume in " + timeleft + " seconds";
-  }
-  timeleft -= 1;
+pauseTime *= 1000;
+var timeleft = pauseTime;
+let downloadTimer = setInterval(function(){
+    if(timeleft < 0) {
+        clearInterval(downloadTimer);
+        document.getElementById("overlayElement").style.display = "none";
+    } else {
+        document.getElementById("countdown").innerHTML = "You can resume in " + timeleft/1000 + ".";
+    }
+    timeleft -= 1000;
 }, 1000);
  
-var pauseTime = 1000 * 10
+
 
 // MAIN
 
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
-    setTimeout(function() {
-        disableOverlay()
-    }, pauseTime);
 };
