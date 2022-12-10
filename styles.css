@@ -2,7 +2,7 @@
 
 /* VARIABLES */
 :root {
-  --font-family: "Futara", sans-serif;
+  --font-family: "Arial", sans-serif;
   --padding-bottom: 20px;
   --opacity: 0.9;
 }
@@ -23,14 +23,14 @@
   text-align: center;
 }
 
-#paddingHelper {
-  padding-top: 200px;
+.paddingHelper {
+  padding-top: 100px;
 }
 
-#mainMessage {
+.mainMessage {
   padding-top: 100px;
   font-size: xxx-large;
-  font-weight: bold;
+  font-weight: 900;
   font-family: var(--font-family);
   opacity: var(--opacity);
   padding-bottom: var(--padding-bottom);
@@ -40,7 +40,7 @@
 #countdownMessage {
   font-family: var(--font-family);
   font-size: large;
-  opacity: var(--opacity);
+  opacity: 0.1;
   padding-bottom: var(--padding-bottom);
   color: var(--arc-palette-title);
 }

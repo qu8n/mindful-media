@@ -4,7 +4,7 @@
 
 var pauseTime = 10; // in seconds
 
-var mindfulnessMessage = "Inhale. Exhale. Repeat.";
+var mainMessage = "Take deep breaths. ";
 
 const websiteList = [
     "www.4chan.org",
@@ -26,7 +26,7 @@ const websiteList = [
 
 function currentWebsiteInList(websiteList) {
     // get the current website's URL
-    let currentUrl = window.location.hostname;
+    var currentUrl = window.location.hostname;
 
     // if URL doesn't include subdomain "www", add it
     if (currentUrl.indexOf("www.") === -1) {
@@ -56,8 +56,8 @@ function enableOverlay() {
 
     // insert mindfulness message
     overlayElement.innerHTML += `
-        <p id="paddingHelper"></p>
-        <p id="mainMessage">${mindfulnessMessage}</p>
+        <p class="paddingHelper"></p>
+        <p class="mainMessage">${mainMessage}</p>
     `;
     
     startCountdownTimer();
@@ -76,7 +76,7 @@ function startCountdownTimer() {
         }
         timeleft -= 1000;
     }, 1000);
-}
+};
  
 function timeOver() {
     document.getElementById("countdownMessage").style.display = "none";
@@ -88,8 +88,12 @@ function timeOver() {
         window.close()
     });
 
+    let hostname = window.location.hostname.replace("www.", "");
+    let domainName = hostname.split('.')[0];
+    domainName = domainName.charAt(0).toUpperCase() + domainName.slice(1);
+    
     let continueButton = document.createElement("button");
-    continueButton.innerHTML = "Continue to website";
+    continueButton.innerHTML = `Continue to ${domainName}`;
     continueButton.id = "continueButton";
     continueButton.addEventListener("click", function() {
         document.getElementById("overlayElement").style.display = "none";
