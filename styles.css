@@ -7,6 +7,7 @@
   --font-family: "Arial", sans-serif;
   --padding-bottom: 20px;
   --opacity: 0.9;
+  --font-weight: bold;
 }
 
 /* STYLES */
@@ -28,13 +29,12 @@
 }
 
 .paddingHelper {
-  padding-top: 100px;
+  padding-top: 200px;
 }
 
 .mainMessage {
-  padding-top: 100px;
   font-size: xxx-large;
-  font-weight: 900;
+  font-weight: var(--font-weight);
   font-family: var(--font-family);
   opacity: var(--opacity);
   padding-bottom: var(--padding-bottom);
@@ -44,7 +44,8 @@
 #countdownMessage {
   font-family: var(--font-family);
   font-size: large;
-  opacity: 0.1;
+  opacity: 0.3;
+  font-weight: var(--font-weight);
   padding-bottom: var(--padding-bottom);
   color: var(--arc-palette-title);
 }
@@ -56,7 +57,7 @@
   padding: 0.75rem 3rem;
   border: 0;
   border-radius: 0.3rem;
-  font-weight: bold;
+  font-weight: var(--font-weight);
   line-height: 1.5;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
@@ -101,6 +102,7 @@
   animation-direction: alternate;
   animation-fill-mode: reverse;
   animation-play-state: running;
+  opacity: 0.5;
 }
 
 @keyframes pulse {
