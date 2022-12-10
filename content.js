@@ -9,9 +9,6 @@ var mainMessage = "Take deep breaths.";
 
 const websiteList = [
     "www.facebook.com",
-    "www.instagram.com",
-    "www.linkedin.com",
-    "www.myspace.com",
     "www.reddit.com",
     "www.snapchat.com",
     "www.tumblr.com",
@@ -23,7 +20,6 @@ const websiteList = [
 
 // FUNCTION DEFINITIONS AND HELPERS -------------------------
 
-// Check if the current website is on the list
 function currentWebsiteInList(websiteList) {
     var currentUrl = window.location.hostname;
 

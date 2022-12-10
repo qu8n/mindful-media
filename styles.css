@@ -1,11 +1,15 @@
 /* This is injected after a web page loads */
 
 /* VARIABLES */
+/* Tweak the following to fit your preferences */
+
 :root {
   --font-family: "Arial", sans-serif;
   --padding-bottom: 20px;
   --opacity: 0.9;
 }
+
+/* STYLES */
 
 #overlayElement {
   position: fixed; /* Sit on top of the page content */
