@@ -1,14 +1,13 @@
 /* This runs after a web page loads */
 
-// SETTINGS
+// SETTINGS -------------------------
+// Tweak the following to fit your preferences
 
 var pauseTime = 10; // in seconds
 
-var mainMessage = "Take deep breaths. ";
+var mainMessage = "Take deep breaths.";
 
 const websiteList = [
-    "www.4chan.org",
-    "www.9gag.com",
     "www.facebook.com",
     "www.instagram.com",
     "www.linkedin.com",
@@ -22,18 +21,17 @@ const websiteList = [
     "www.pinterest.com",
 ];
 
-// FUNCTION DEFINITIONS AND HELPERS
+// FUNCTION DEFINITIONS AND HELPERS -------------------------
 
+// Check if the current website is on the list
 function currentWebsiteInList(websiteList) {
-    // get the current website's URL
     var currentUrl = window.location.hostname;
 
-    // if URL doesn't include subdomain "www", add it
+    // If URL doesn't include subdomain "www", add it
     if (currentUrl.indexOf("www.") === -1) {
         currentUrl = "www." + currentUrl
     };
     
-    // loop through the list of websites and check if the current website's URL matches any of them
     for (let i = 0; i < websiteList.length; i++) {
         if (currentUrl === websiteList[i]) {
             return true;
@@ -43,18 +41,19 @@ function currentWebsiteInList(websiteList) {
 };
 
 function enableOverlay() {
-    // create the overlay parent element
     var overlayElement = document.createElement("div");
+
     overlayElement.id = "overlayElement";
+    
     document.body.appendChild(overlayElement);
     
+    // Breathing animation
     overlayElement.innerHTML += `
     <div class="breathingContainer">
         <div class="breathingBox"></div>
     </div>
     `;
 
-    // insert mindfulness message
     overlayElement.innerHTML += `
         <p class="paddingHelper"></p>
         <p class="mainMessage">${mainMessage}</p>
@@ -66,7 +65,9 @@ function enableOverlay() {
 
 function startCountdownTimer() {
     overlayElement.innerHTML += `<p id="countdownMessage""></p>`
-    let timeleft = pauseTime * 1000;
+
+    let timeleft = pauseTime * 1000; // * 1000 to convert from milliseconds to seconds
+    
     let countdownTimer = setInterval(function(){
         if(timeleft < 0) {
             clearInterval(countdownTimer);
@@ -81,6 +82,7 @@ function startCountdownTimer() {
 function timeOver() {
     document.getElementById("countdownMessage").style.display = "none";
 
+    // Create and set up the "close tab" button
     let closeButton = document.createElement("button");
     closeButton.id = "closeButton";
     closeButton.innerHTML = "Close this tab";
@@ -88,6 +90,7 @@ function timeOver() {
         window.close()
     });
 
+    // Create and set up the "continue" button
     let hostname = window.location.hostname.replace("www.", "");
     let domainName = hostname.split('.')[0];
     domainName = domainName.charAt(0).toUpperCase() + domainName.slice(1);
@@ -99,11 +102,13 @@ function timeOver() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
+    // To add newline between buttons
     let p = document.createElement("p");
+
     overlayElement.append(closeButton, p, continueButton);
 };
 
-// MAIN
+// MAIN -------------------------
 
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();

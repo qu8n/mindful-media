@@ -8,9 +8,9 @@
 }
 
 #overlayElement {
-  position: fixed; /* sit on top of the page content */
+  position: fixed; /* Sit on top of the page content */
   display: block;
-  width: 100%; /* to cover the whole page */
+  width: 100%; /* To cover the whole page */
   height: 100%;
   top: 0;
   left: 0;
@@ -19,7 +19,7 @@
   z-index: 99999;
   background-color: var(
     --arc-palette-background
-  ); /* use current Arc space's theme */
+  ); /* Use current Arc space's theme. See more at https://arc.net/colors.html */
   text-align: center;
 }
 
@@ -51,12 +51,13 @@
   font-family: var(--font-family);
   padding: 0.75rem 3rem;
   border: 0;
-  border-radius: 0.317rem;
+  border-radius: 0.3rem;
   font-weight: bold;
   line-height: 1.5;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
 }
+
 #closeButton:hover,
 #continueButton:hover {
   opacity: calc(var(--opacity) - 0.1);
