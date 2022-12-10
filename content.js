@@ -1,14 +1,10 @@
 /* This runs after a web page loads */
 
-// TODO: format the message to look pretty
-// TODO: move variables/appropriate functions to the config section, then ensure that it works in Arc
-// TODO: credit https://one-sec.app/
-// TODO: add opacity to the countdown text
-// TODO: add a breathing circle effect https://vmar76.medium.com/using-css-animations-to-visualize-breathing-techniques-7a20ee0aed5a
+// SETTINGS
 
-// CONFIGURATIONS
+var pauseTime = 1; // in seconds
 
-let pauseTime = 1; // in seconds
+var mindfulnessMessage = "Take a deep breath."
 
 const websiteList = [
     "www.4chan.org",
@@ -50,20 +46,13 @@ function enableOverlay() {
     // create the overlay parent element
     var overlayElement = document.createElement("div");
     overlayElement.id = "overlayElement";
-    overlayElement.style.color = "var(--arc-palette-title)";
 
     // insert mindfulness message
     overlayElement.innerHTML = `
         <p id="paddingHelper"></p>
-        <p id="mainMessage">Take a deep breath.</p>
-        <div id="inspirationalQuote">
-            <p>"The present moment is filled with joy and happiness.</p> 
-            <p>If you are attentive, you will see it.”</p>
-            <p> - Thich Nhat Hanh</p>
-        </div> 
+        <p id="mainMessage">${mindfulnessMessage}</p>
         <p id="countdownMessage""></p>
     `;
-
     document.body.appendChild(overlayElement);
 };
 
@@ -75,7 +64,7 @@ let downloadTimer = setInterval(function(){
         clearInterval(downloadTimer);
         timeOver();
     } else {
-        document.getElementById("countdownMessage").innerHTML = "You can resume in " + timeleft/1000 + ".";
+        document.getElementById("countdownMessage").innerHTML = "Resuming in " + timeleft/1000;
     }
     timeleft -= 1000;
 }, 1000);
@@ -85,20 +74,21 @@ function timeOver() {
 
     let closeButton = document.createElement("button");
     closeButton.id = "closeButton";
-    closeButton.innerHTML = "Exit this tab";
+    closeButton.innerHTML = "Close this tab";
     closeButton.addEventListener("click", function() {
         window.close()
     });
 
     let continueButton = document.createElement("button");
-    continueButton.innerHTML = "Continue";
+    continueButton.innerHTML = "Continue to website";
     continueButton.id = "continueButton";
     continueButton.addEventListener("click", function() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
-    overlayElement.appendChild(closeButton);
-    overlayElement.appendChild(continueButton);
+    let p = document.createElement("p")
+    overlayElement.append(closeButton, p, continueButton);
+    // overlayElement.appendChild(continueButton);
 };
 
 // MAIN

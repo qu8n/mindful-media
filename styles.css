@@ -1,5 +1,11 @@
 /* This is injected after a web page loads */
 
+/* VARIABLES */
+:root {
+  --font-family: "Futara", sans-serif;
+  --padding-bottom: 20px;
+}
+
 #overlayElement {
   position: fixed; /* sit on top of the page content */
   display: block;
@@ -13,7 +19,6 @@
   background-color: var(
     --arc-palette-background
   ); /* use current Arc space's theme */
-  font-family: "Futara", sans-serif;
   text-align: center;
 }
 
@@ -24,41 +29,43 @@
 #mainMessage {
   font-size: xxx-large;
   font-weight: bold;
-  padding-bottom: 20px;
-}
-
-#inspirationalQuote {
-  font-size: x-large;
-  font-style: italic;
-  padding-bottom: 20px;
+  font-family: var(--font-family);
+  padding-bottom: var(--padding-bottom);
+  color: var(--arc-palette-title);
 }
 
 #countdownMessage {
+  font-family: var(--font-family);
   font-size: large;
   opacity: 0.3;
-  padding-bottom: 20px;
+  padding-bottom: var(--padding-bottom);
+  color: var(--arc-palette-title);
 }
 
 #closeButton,
 #continueButton {
-  margin: 5px;
-  padding: 0.75rem 1rem;
+  font-family: var(--font-family);
+  padding: 0.75rem 3rem;
   border: 0;
   border-radius: 0.317rem;
   font-weight: bold;
-  font-size: large;
   line-height: 1.5;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
 }
+#closeButton:hover,
+#continueButton:hover {
+  opacity: 0.85 !important;
+}
 
 #closeButton {
   background-color: var(--arc-palette-foregroundSecondary);
-  color: #fff;
+  color: var(--arc-palette-title);
+  font-size: x-large;
 }
 
 #continueButton {
   background-color: transparent;
   color: var(--arc-palette-title);
-  opacity: 0.5;
+  font-size: large;
 }
