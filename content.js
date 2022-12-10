@@ -55,10 +55,13 @@ function enableOverlay() {
     // insert mindfulness message
     overlayElement.innerHTML = `
         <p id="paddingHelper"></p>
-        <p>Take a deep breath.</p>
-        <p>The present moment is filled with joy and happiness. If you are attentive, you will see it.”
-        ― Thich Nhat Hanh</p> 
-        <p id="countdown" style="opacity: 0.3"></p>
+        <p id="mainMessage">Take a deep breath.</p>
+        <div id="inspirationalQuote">
+            <p>"The present moment is filled with joy and happiness.</p> 
+            <p>If you are attentive, you will see it.”</p>
+            <p> - Thich Nhat Hanh</p>
+        </div> 
+        <p id="countdownMessage""></p>
     `;
 
     document.body.appendChild(overlayElement);
@@ -70,24 +73,26 @@ var timeleft = pauseTime;
 let downloadTimer = setInterval(function(){
     if(timeleft < 0) {
         clearInterval(downloadTimer);
-        timeOverMessage();
+        timeOver();
     } else {
-        document.getElementById("countdown").innerHTML = "You can resume in " + timeleft/1000 + ".";
+        document.getElementById("countdownMessage").innerHTML = "You can resume in " + timeleft/1000 + ".";
     }
     timeleft -= 1000;
 }, 1000);
  
-function timeOverMessage() {
-    let closeButton = document.createElement("button");
-    closeButton.innerHTML = "Exit this tab";
+function timeOver() {
+    document.getElementById("countdownMessage").style.display = "none";
 
+    let closeButton = document.createElement("button");
+    closeButton.id = "closeButton";
+    closeButton.innerHTML = "Exit this tab";
     closeButton.addEventListener("click", function() {
         window.close()
     });
 
     let continueButton = document.createElement("button");
     continueButton.innerHTML = "Continue";
-
+    continueButton.id = "continueButton";
     continueButton.addEventListener("click", function() {
         document.getElementById("overlayElement").style.display = "none";
     });

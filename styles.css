@@ -13,11 +13,52 @@
   background-color: var(
     --arc-palette-background
   ); /* use current Arc space's theme */
-  font-family: "Helvetica", sans-serif;
-  font-size: x-large;
+  font-family: "Futara", sans-serif;
   text-align: center;
 }
 
 #paddingHelper {
   padding-top: 300px;
+}
+
+#mainMessage {
+  font-size: xxx-large;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+#inspirationalQuote {
+  font-size: x-large;
+  font-style: italic;
+  padding-bottom: 20px;
+}
+
+#countdownMessage {
+  font-size: large;
+  opacity: 0.3;
+  padding-bottom: 20px;
+}
+
+#closeButton,
+#continueButton {
+  margin: 5px;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 0.317rem;
+  font-weight: bold;
+  font-size: large;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
+
+#closeButton {
+  background-color: var(--arc-palette-foregroundSecondary);
+  color: #fff;
+}
+
+#continueButton {
+  background-color: transparent;
+  color: var(--arc-palette-title);
+  opacity: 0.5;
 }
