@@ -52,6 +52,11 @@ function enableOverlay() {
         <p id="paddingHelper"></p>
         <p id="mainMessage">${mindfulnessMessage}</p>
         <p id="countdownMessage""></p>
+        <div class="breathingContainer">
+            <div class="exhale"></div>
+            <div class="inhale"></div>
+            <div class="breathingBox"></div>
+        </div>
     `;
     document.body.appendChild(overlayElement);
 };
@@ -96,3 +101,5 @@ function timeOver() {
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
 };
+
+

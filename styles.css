@@ -23,10 +23,11 @@
 }
 
 #paddingHelper {
-  padding-top: 300px;
+  padding-top: 200px;
 }
 
 #mainMessage {
+  padding-top: 100px;
   font-size: xxx-large;
   font-weight: bold;
   font-family: var(--font-family);
@@ -68,4 +69,39 @@
   background-color: transparent;
   color: var(--arc-palette-title);
   font-size: large;
+}
+
+.breathingContainer {
+  position: fixed; /* sit on top of the page content */
+  display: hide;
+  width: 100%; /* to cover the whole page */
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+  background: var(--arc-palette-background);
+}
+
+.breathingContainer .breathingBox {
+  display: block;
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+  animation-fill-mode: reverse;
+  animation-play-state: running;
+}
+
+@keyframes pulse {
+  0% {
+    height: 0;
+    background: green;
+  }
+  100% {
+    height: 100%;
+    background: blue;
+  }
 }
