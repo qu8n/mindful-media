@@ -13,11 +13,11 @@
   background-color: var(
     --arc-palette-background
   ); /* use current Arc space's theme */
-}
-
-#overlayContent {
   font-family: "Helvetica", sans-serif;
   font-size: x-large;
-  margin-top: 300px;
   text-align: center;
+}
+
+#paddingHelper {
+  padding-top: 300px;
 }

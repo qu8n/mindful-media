@@ -8,7 +8,7 @@
 
 // CONFIGURATIONS
 
-let pauseTime = 10; // in seconds
+let pauseTime = 1; // in seconds
 
 const websiteList = [
     "www.4chan.org",
@@ -48,20 +48,20 @@ function currentWebsiteInList(websiteList) {
 
 function enableOverlay() {
     // create the overlay parent element
-    let overlayElement = document.createElement("div");
+    var overlayElement = document.createElement("div");
     overlayElement.id = "overlayElement";
+    overlayElement.style.color = "var(--arc-palette-title)";
 
     // insert mindfulness message
     overlayElement.innerHTML = `
-        <div id="overlayContent" style="color: var(--arc-palette-title)">
-            <p>Take a deep breath.</p>
-            <p>The present moment is filled with joy and happiness. If you are attentive, you will see it.”
-            ― Thich Nhat Hanh</p> 
-            <p id="countdown" style="opacity: 0.3"></p>
-        </div>
+        <p id="paddingHelper"></p>
+        <p>Take a deep breath.</p>
+        <p>The present moment is filled with joy and happiness. If you are attentive, you will see it.”
+        ― Thich Nhat Hanh</p> 
+        <p id="countdown" style="opacity: 0.3"></p>
     `;
 
-    document.body.appendChild(overlayElement)
+    document.body.appendChild(overlayElement);
 };
 
 
@@ -70,14 +70,31 @@ var timeleft = pauseTime;
 let downloadTimer = setInterval(function(){
     if(timeleft < 0) {
         clearInterval(downloadTimer);
-        document.getElementById("overlayElement").style.display = "none";
+        timeOverMessage();
     } else {
         document.getElementById("countdown").innerHTML = "You can resume in " + timeleft/1000 + ".";
     }
     timeleft -= 1000;
 }, 1000);
  
+function timeOverMessage() {
+    let closeButton = document.createElement("button");
+    closeButton.innerHTML = "Exit this tab";
 
+    closeButton.addEventListener("click", function() {
+        window.close()
+    });
+
+    let continueButton = document.createElement("button");
+    continueButton.innerHTML = "Continue";
+
+    continueButton.addEventListener("click", function() {
+        document.getElementById("overlayElement").style.display = "none";
+    });
+
+    overlayElement.appendChild(closeButton);
+    overlayElement.appendChild(continueButton);
+};
 
 // MAIN
 
