@@ -16,6 +16,8 @@ const websiteList = [
     "www.tiktok.com",
     "www.youtube.com",
     "www.pinterest.com",
+    "www.9gag.com",
+    "www.netflix.com"
 ];
 
 // FUNCTION DEFINITIONS AND HELPERS -------------------------
