@@ -10,8 +10,25 @@ Mindful Media is a [Boost](https://browserinc.notion.site/Arc-Boosts-beta-fd9ea0
 2. Navigate to the create Boost page by either (1) clicking on the **+ button** in your sidebar and select New Boost or (2) hit **⌘ + T** to open your Command Bar and type **New Boost**.
 3. Select the `Custom` template, then select `All websites`.
 4. Copy and paste codes from `content.js` and `styles.css` in this repository into the respective files in your new custom Boost.
-5. Optional: Configure the countdown time, mindfulness reminder, and the affected websites in your `content.js` file.
-6. In your new Boost's settings located at the top left corner, update your new Boost's name to `Mindful Media` and ensure that the `Content script runs` is set to `After page loads`.
+5. In your new Boost's settings located at the top left corner ⚙️, update your new Boost's name to `Mindful Media` and ensure that the `Content script runs` is set to `After page loads`.
+
+### Optional Steps
+
+7. Configure the countdown time, mindfulness reminder, and the affected websites in your `content.js` file.
+8. Go to your [Arc Extensions](arc://extensions/) page, click `Details` of the Mindful Media Boost, and enable `Allow in Incognito`.
+
+## Tested Websites to Date
+
+- [Facebook](www.facebook.com)
+- [Reddit](www.reddit.com)
+- [Snapchat](www.snapchat.com)
+- [Tumblr](www.tumblr.com)
+- [Twitter](www.twitter.com)
+- [TikTok](www.tiktok.com)
+- [Youtube](www.youtube.com)
+- [Pinterest](www.pinterest.com)
+- [9gag](www.9gag.com)
+- [Netflix](www.netflix.com)
 
 ## Contributing
 
