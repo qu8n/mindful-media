@@ -29,6 +29,9 @@ Mindful Media is a [Boost](https://browserinc.notion.site/Arc-Boosts-beta-fd9ea0
 - [Pinterest](www.pinterest.com)
 - [9gag](www.9gag.com)
 - [Netflix](www.netflix.com)
+- [Amazon](www.amazon.com)
+- [eBay](www.ebay.com)
+- [Depop](www.depop.com)
 
 ## Contributing
 

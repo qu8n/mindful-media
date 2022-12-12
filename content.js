@@ -17,7 +17,10 @@ const websiteList = [
     "www.youtube.com",
     "www.pinterest.com",
     "www.9gag.com",
-    "www.netflix.com"
+    "www.netflix.com",
+    "www.ebay.com",
+    "www.amazon.com",
+    "www.depop.com"
 ];
 
 // FUNCTION DEFINITIONS AND HELPERS -------------------------
