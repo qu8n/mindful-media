@@ -1,5 +1,7 @@
 /* This runs after a web page loads */
 
+// TO CONTRIBUTE/GET LATEST FIXES, GO TO https://github.com/quandollar/arc-boost-mindful-media
+
 // SETTINGS -------------------------
 // Tweak the following to fit your preferences
 
