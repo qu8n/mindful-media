@@ -95,7 +95,7 @@
 
 .breathingContainer .breathingBox {
   display: block;
-  animation-name: pulse;
+  animation-name: mm-pulse;
   animation-duration: 4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -105,7 +105,7 @@
   opacity: 0.5;
 }
 
-@keyframes pulse {
+@keyframes mm-pulse {
   0% {
     height: 0;
     background: var(--arc-palette-focus);
