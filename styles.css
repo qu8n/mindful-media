@@ -30,9 +30,12 @@
 
 .paddingHelper {
   padding-top: 200px;
+  margin: 0;
 }
 
 .mainMessage {
+  margin: 0 0 64px 0;
+  padding: 0;
   font-size: xxx-large;
   font-weight: var(--font-weight);
   font-family: var(--font-family);
@@ -42,6 +45,8 @@
 }
 
 #countdownMessage {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-family);
   font-size: large;
   opacity: 0.3;
@@ -52,11 +57,13 @@
 
 #closeButton,
 #continueButton {
+  margin: 0;
+  padding: 0;
   opacity: var(--opacity);
   font-family: var(--font-family);
-  padding: 0.75rem 3rem;
+  padding: 12px 48px;
   border: 0;
-  border-radius: 0.3rem;
+  border-radius: 8px;
   font-weight: var(--font-weight);
   line-height: 1.5;
   cursor: pointer;
@@ -69,12 +76,15 @@
 }
 
 #closeButton {
+  margin-bottom: 32px;
   background-color: var(--arc-palette-foregroundSecondary);
   color: var(--arc-palette-title);
   font-size: x-large;
 }
 
 #continueButton {
+  display: block;
+  margin: 0 auto;
   background-color: transparent;
   color: var(--arc-palette-title);
   font-size: large;

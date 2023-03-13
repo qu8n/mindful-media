@@ -11,6 +11,8 @@ var mainMessage = "Take deep breaths.";
 
 const websiteList = [
     "www.facebook.com",
+    "www.instagram.com",
+    "www.linkedin.com",
     "www.reddit.com",
     "www.snapchat.com",
     "www.tumblr.com",
@@ -110,9 +112,6 @@ function timeOver() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
-    // To add newline between buttons
-    let p = document.createElement("p");
-
     overlayElement.append(closeButton, p, continueButton);
 };
 
@@ -120,4 +119,4 @@ function timeOver() {
 
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
-};
+}
