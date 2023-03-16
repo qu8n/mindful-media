@@ -58,10 +58,9 @@
 #closeButton,
 #continueButton {
   margin: 0;
-  padding: 0;
+  padding: 12px 48px;
   opacity: var(--opacity);
   font-family: var(--font-family);
-  padding: 12px 48px;
   border: 0;
   border-radius: 8px;
   font-weight: var(--font-weight);

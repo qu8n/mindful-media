@@ -112,7 +112,7 @@ function timeOver() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
-    overlayElement.append(closeButton, p, continueButton);
+    overlayElement.append(closeButton, continueButton);
 };
 
 // MAIN -------------------------
