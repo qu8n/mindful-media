@@ -11,6 +11,8 @@ var mainMessage = "Take deep breaths.";
 
 const websiteList = [
     "www.facebook.com",
+    "www.instagram.com",
+    "www.linkedin.com",
     "www.reddit.com",
     "www.snapchat.com",
     "www.tumblr.com",
@@ -27,6 +29,8 @@ const websiteList = [
 
 // FUNCTION DEFINITIONS AND HELPERS -------------------------
 
+var bodyStyleDisplay = window.getComputedStyle(document.body, null).getPropertyValue('display');
+
 function currentWebsiteInList(websiteList) {
     var currentUrl = window.location.hostname;
 
@@ -34,7 +38,7 @@ function currentWebsiteInList(websiteList) {
     if (currentUrl.indexOf("www.") === -1) {
         currentUrl = "www." + currentUrl
     };
-    
+
     for (let i = 0; i < websiteList.length; i++) {
         if (currentUrl === websiteList[i]) {
             return true;
@@ -46,10 +50,12 @@ function currentWebsiteInList(websiteList) {
 function enableOverlay() {
     var overlayElement = document.createElement("div");
 
+    document.body.style.display = "none";
+
     overlayElement.id = "overlayElement";
-    
-    document.body.appendChild(overlayElement);
-    
+
+    document.documentElement.appendChild(overlayElement);
+
     // Breathing animation
     overlayElement.innerHTML += `
     <div class="breathingContainer">
@@ -61,16 +67,16 @@ function enableOverlay() {
         <p class="paddingHelper"></p>
         <p class="mainMessage">${mainMessage}</p>
     `;
-    
+
     startCountdownTimer();
-    
+
 };
 
 function startCountdownTimer() {
     overlayElement.innerHTML += `<p id="countdownMessage""></p>`
 
     let timeleft = pauseTime * 1000; // * 1000 to convert from milliseconds to seconds
-    
+
     let countdownTimer = setInterval(function(){
         if(timeleft < 0) {
             clearInterval(countdownTimer);
@@ -81,8 +87,9 @@ function startCountdownTimer() {
         timeleft -= 1000;
     }, 1000);
 };
- 
+
 function timeOver() {
+    document.body.style.display = bodyStyleDisplay;
     document.getElementById("countdownMessage").style.display = "none";
 
     // Create and set up the "close tab" button
@@ -97,7 +104,7 @@ function timeOver() {
     let hostname = window.location.hostname.replace("www.", "");
     let domainName = hostname.split('.')[0];
     domainName = domainName.charAt(0).toUpperCase() + domainName.slice(1);
-    
+
     let continueButton = document.createElement("button");
     continueButton.innerHTML = `Continue to ${domainName}`;
     continueButton.id = "continueButton";
@@ -105,14 +112,11 @@ function timeOver() {
         document.getElementById("overlayElement").style.display = "none";
     });
 
-    // To add newline between buttons
-    let p = document.createElement("p");
-
-    overlayElement.append(closeButton, p, continueButton);
+    overlayElement.append(closeButton, continueButton);
 };
 
 // MAIN -------------------------
 
 if (currentWebsiteInList(websiteList)) {
     enableOverlay();
-};
+}
